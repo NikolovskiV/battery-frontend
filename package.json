@@ -2,7 +2,7 @@
   "name": "lia-frontend",
   "version": "0.0.1",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "proxy": "https://battery-api.onrender.com",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
     "@fortawesome/react-fontawesome": "^0.1.17",

@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
-import axios from "axios";
-import AuthContext from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
-import "./Page2.css";
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import AuthContext from '../context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
+import './Page2.css';
 
 export default function Page2() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { getLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -18,9 +18,12 @@ export default function Page2() {
         email,
         password,
       };
-      await axios.post("http://localhost:4000/auth/signin", signInData);
+      await axios.post(
+        'https://battery-api.onrender.com/auth/signin',
+        signInData
+      );
       await getLoggedIn();
-      navigate("/statistics");
+      navigate('/statistics');
     } catch (err) {
       console.error(err);
     }

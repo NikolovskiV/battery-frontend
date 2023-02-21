@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import AuthContext from "../../context/AuthContext";
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import AuthContext from '../../context/AuthContext';
 
 function SignOutBtn() {
   const { getLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   async function signOut() {
-    await axios.get("http://localhost:4000/auth/logout");
+    await axios.get('https://battery-api.onrender.com/auth/logout');
     await getLoggedIn();
-    navigate("/");
+    navigate('/');
   }
   return (
     <div className="statistic-one">

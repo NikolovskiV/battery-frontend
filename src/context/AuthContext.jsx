@@ -4,7 +4,7 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 function AuthContextP(props) {
-  const [loggedIn, setLoggedIn] = useState(undefined);
+  const [loggedIn, setLoggedIn] = useState();
 
   async function getLoggedIn() {
     const loggedInRes = await axios.get(

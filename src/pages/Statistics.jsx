@@ -1,9 +1,9 @@
-import { React, useEffect, useState } from "react";
-import MarketChart from "../components/statistics/MarketChart";
-import axios from "axios";
-import ApplicationChart from "../components/statistics/ApplicationChart";
-import Styles from "./Statistics.module.css";
-import "table2excel";
+import { React, useEffect, useState } from 'react';
+import MarketChart from '../components/statistics/MarketChart';
+import axios from 'axios';
+import ApplicationChart from '../components/statistics/ApplicationChart';
+import Styles from './Statistics.module.css';
+import 'table2excel';
 
 function Statistics() {
   const Table2Excel = window.Table2Excel;
@@ -13,7 +13,7 @@ function Statistics() {
   useEffect(() => {
     async function getStatistics() {
       const statisticsRes = await axios.get(
-        "http://localhost:3000/statistics/"
+        'https://battery-api.onrender.com/statistics/'
       );
       setMarket(statisticsRes.data);
       setApplications(statisticsRes.data);
@@ -21,7 +21,7 @@ function Statistics() {
     }
 
     function buildSimulation(statistics) {
-      var table = document.getElementById("table-body");
+      var table = document.getElementById('table-body');
 
       for (var i = 0; i < statistics.length; i++) {
         var row = `<tr>
@@ -42,7 +42,7 @@ function Statistics() {
     e.preventDefault();
 
     var table2excel = new Table2Excel();
-    table2excel.export(document.querySelectorAll("#excel-table"));
+    table2excel.export(document.querySelectorAll('#excel-table'));
   }
 
   return (
@@ -57,19 +57,21 @@ function Statistics() {
           <i className="fas fa-download"> Export to Excel</i>
         </button>
         <div className={Styles.table_wrapper}>
-        <table className={Styles.tableS} id="excel-table">
-          <thead>
-            <tr className="tablerow">
-              <th><b>Market</b></th>
-              <th>Application</th>
-              <th>Items</th>
-              <th>Current</th>
-              <th>Service Life</th>
-              <th>Time Stamp</th>
-            </tr>
-          </thead>
-          <tbody id="table-body"></tbody>
-        </table>
+          <table className={Styles.tableS} id="excel-table">
+            <thead>
+              <tr className="tablerow">
+                <th>
+                  <b>Market</b>
+                </th>
+                <th>Application</th>
+                <th>Items</th>
+                <th>Current</th>
+                <th>Service Life</th>
+                <th>Time Stamp</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
         </div>
       </div>
     </div>
